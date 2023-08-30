@@ -32,7 +32,7 @@ export class DataBase<T extends ObjectWithId> {
         this.elements.splice(index, 1);
     }
 
-    public async getAllElements(){
+    public async getAllElements() {
         return this.elements;
     }
 
