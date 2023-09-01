@@ -1,6 +1,6 @@
-import { IncomingMessage, ServerResponse } from "http";
 import { Authorizer } from "../../../app/server_app/auth/Authorizer";
-import { RegisterHandler } from "../../../app/server_app/handlers/RegisterHandler";
+import { LoginHandler } from "../../../app/server_app/handlers/LoginHandler"
+import { IncomingMessage, ServerResponse } from 'http';
 import { HTTP_CODES, HTTP_METHODS } from "../../../app/server_app/model/ServerModel";
 
 const getRequestBodyMock = jest.fn();
@@ -16,9 +16,10 @@ const accountMock = {
   password: "123456"
 }
 
-describe('RegisterHandler test suite', () => {
-  let sut: RegisterHandler;
+const tokenMock = "dsfsdgdfg454454545";
 
+describe('LoginHandler test suite', () => {
+  let sut: LoginHandler
   const request = {
     method: undefined,
   }
@@ -30,35 +31,41 @@ describe('RegisterHandler test suite', () => {
   }
 
   const authorizerMock = {
-    registerUser: jest.fn()
+    login: jest.fn()
   }
 
   beforeEach(() => {
-    sut = new RegisterHandler(
-      request as IncomingMessage,
+    sut = new LoginHandler(
+      request as any as IncomingMessage,
       responseMock as any as ServerResponse,
-      authorizerMock as any as Authorizer,
-    );
+      authorizerMock as any as Authorizer
+    )
   });
 
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-
-  it('should register valid accounts in request', async () => {
+  it('should login with valid credentianls in request', async () => {
     request.method = HTTP_METHODS.POST;
     getRequestBodyMock.mockResolvedValueOnce(accountMock);
-    authorizerMock.registerUser.mockResolvedValueOnce(accountMock.id);
+    authorizerMock.login.mockResolvedValueOnce(tokenMock);
     await sut.handleRequest();
     expect(responseMock.statusCode).toEqual(HTTP_CODES.CREATED);
     expect(responseMock.writeHead).toHaveBeenCalledWith(HTTP_CODES.CREATED, { 'Content-Type': 'application/json' })
-    expect(responseMock.write).toHaveBeenCalledWith(JSON.stringify({
-      userId: accountMock.id
-    }))
+    expect(responseMock.write).toHaveBeenCalledWith(JSON.stringify({ token: tokenMock }))
   });
 
-  it('should throw error with invalid accounts in the request', async () => {
+  it('should login with invalid credentianls in request', async () => {
+    request.method = HTTP_METHODS.POST;
+    getRequestBodyMock.mockResolvedValueOnce(accountMock);
+    authorizerMock.login.mockResolvedValueOnce('');
+    await sut.handleRequest();
+    expect(responseMock.statusCode).toEqual(HTTP_CODES.NOT_fOUND);
+    expect(responseMock.write).toHaveBeenCalledWith(JSON.stringify('wrong username or password'))
+  });
+
+  it('should throw error with invalid request', async () => {
     request.method = HTTP_METHODS.POST;
     getRequestBodyMock.mockResolvedValueOnce({});
     await sut.handleRequest();
