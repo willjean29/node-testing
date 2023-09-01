@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -86,41 +86,41 @@
 <a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { IncomingMessage } from "http";
 &nbsp;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export async function <span class="fstat-no" title="function not covered" >g</span>etRequestBody(</span>request: IncomingMessage): Promise&lt;any&gt; {
-<span class="cstat-no" title="statement not covered" >    return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
-        let body = <span class="cstat-no" title="statement not covered" >'';</span>
-<span class="cstat-no" title="statement not covered" >        request.on('data', <span class="fstat-no" title="function not covered" >(d</span>ata: string) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            body += data;</span>
+export async function getRequestBody(request: IncomingMessage): Promise&lt;any&gt; {
+    return new Promise((resolve, reject) =&gt; {
+        let body = '';
+        request.on('data', (data: string) =&gt; {
+            body += data;
         });
-<span class="cstat-no" title="statement not covered" >        request.on('end', <span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            try {</span>
-<span class="cstat-no" title="statement not covered" >                resolve(JSON.parse(body));</span>
+        request.on('end', () =&gt; {
+            try {
+                resolve(JSON.parse(body));
             } catch (jsonError) {
-<span class="cstat-no" title="statement not covered" >                reject(jsonError)</span>
+                reject(jsonError)
             }
         });
-<span class="cstat-no" title="statement not covered" >        request.on('error', <span class="fstat-no" title="function not covered" >(e</span>rror: any) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            reject(error)</span>
+        request.on('error', (error: any) =&gt; {
+            reject(error)
         });
     });
 }</pre></td></tr></table></pre>
@@ -130,7 +130,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-01T05:18:36.202Z
+                at 2023-09-01T16:36:07.083Z
             </div>
         <script src="../prettify.js"></script>
         <script>
