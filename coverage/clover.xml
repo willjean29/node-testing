@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1693534202754" clover="3.2.0">
-  <project timestamp="1693534202754" name="All files">
-    <metrics statements="265" coveredstatements="80" conditionals="55" coveredconditionals="16" methods="62" coveredmethods="23" elements="382" coveredelements="119" complexity="0" loc="265" ncloc="265" packages="6" files="12" classes="12"/>
+<coverage generated="1693543970645" clover="3.2.0">
+  <project timestamp="1693543970645" name="All files">
+    <metrics statements="265" coveredstatements="93" conditionals="55" coveredconditionals="17" methods="62" coveredmethods="28" elements="382" coveredelements="138" complexity="0" loc="265" ncloc="265" packages="6" files="12" classes="12"/>
     <package name="auth">
       <metrics statements="14" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="5" coveredmethods="0"/>
       <file name="Authorizer.ts" path="/Users/willjean/Desktop/Proyectos/Node/node-testing/src/app/server_app/auth/Authorizer.ts">
@@ -23,7 +23,7 @@
       </file>
     </package>
     <package name="data">
-      <metrics statements="50" coveredstatements="24" conditionals="1" coveredconditionals="0" methods="27" coveredmethods="15"/>
+      <metrics statements="50" coveredstatements="37" conditionals="1" coveredconditionals="1" methods="27" coveredmethods="20"/>
       <file name="DataBase.ts" path="/Users/willjean/Desktop/Proyectos/Node/node-testing/src/app/server_app/data/DataBase.ts">
         <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="11"/>
         <line num="1" count="1" type="stmt"/>
@@ -62,20 +62,20 @@
         <line num="32" count="0" type="stmt"/>
       </file>
       <file name="SessionTokenDataAccess.ts" path="/Users/willjean/Desktop/Proyectos/Node/node-testing/src/app/server_app/data/SessionTokenDataAccess.ts">
-        <metrics statements="13" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="31" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
+        <metrics statements="13" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="5" coveredmethods="5"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="31" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
       </file>
       <file name="UserCredentialsDataAccess.ts" path="/Users/willjean/Desktop/Proyectos/Node/node-testing/src/app/server_app/data/UserCredentialsDataAccess.ts">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
