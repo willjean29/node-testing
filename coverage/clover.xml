@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1693635006285" clover="3.2.0">
-  <project timestamp="1693635006285" name="All files">
-    <metrics statements="265" coveredstatements="254" conditionals="55" coveredconditionals="52" methods="62" coveredmethods="57" elements="382" coveredelements="363" complexity="0" loc="265" ncloc="265" packages="6" files="12" classes="12"/>
+<coverage generated="1693779122819" clover="3.2.0">
+  <project timestamp="1693779122819" name="All files">
+    <metrics statements="265" coveredstatements="265" conditionals="55" coveredconditionals="55" methods="62" coveredmethods="62" elements="382" coveredelements="382" complexity="0" loc="265" ncloc="265" packages="6" files="12" classes="12"/>
     <package name="auth">
-      <metrics statements="14" coveredstatements="3" conditionals="3" coveredconditionals="0" methods="5" coveredmethods="0"/>
+      <metrics statements="14" coveredstatements="14" conditionals="3" coveredconditionals="3" methods="5" coveredmethods="5"/>
       <file name="Authorizer.ts" path="/Users/willjean/Desktop/Proyectos/Node/node-testing/src/app/server_app/auth/Authorizer.ts">
-        <metrics statements="14" coveredstatements="3" conditionals="3" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="cond" truecount="0" falsecount="3"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
+        <metrics statements="14" coveredstatements="14" conditionals="3" coveredconditionals="3" methods="5" coveredmethods="5"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="cond" truecount="3" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
       </file>
     </package>
     <package name="data">
