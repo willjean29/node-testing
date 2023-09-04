@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">17.64% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>3/17</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">9.09% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>1/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">23.07% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>3/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -101,42 +101,42 @@
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { generateRandomId } from "./IdGenerator";
@@ -149,32 +149,32 @@ export class DataBase&lt;T extends ObjectWithId&gt; {
 &nbsp;
     private elements = new Array&lt;T&gt;();
 &nbsp;
-    public async insert(arg: T) {
-        arg.id = generateRandomId();
-        this.elements.push(arg);
-        return arg.id;
+    public async <span class="fstat-no" title="function not covered" >insert(</span>arg: T) {
+<span class="cstat-no" title="statement not covered" >        arg.id = generateRandomId();</span>
+<span class="cstat-no" title="statement not covered" >        this.elements.push(arg);</span>
+<span class="cstat-no" title="statement not covered" >        return arg.id;</span>
     }
 &nbsp;
-    public async getBy(argName: string, argValue: string) {
-        return this.elements.find(x =&gt; x[argName] === argValue)
+    public async <span class="fstat-no" title="function not covered" >getBy(</span>argName: string, argValue: string) {
+<span class="cstat-no" title="statement not covered" >        return this.elements.find(<span class="fstat-no" title="function not covered" >x </span>=&gt; <span class="cstat-no" title="statement not covered" >x[argName] === argValue)</span></span>
     }
 &nbsp;
-    public async findAllBy(argName: string, argValue: string) {
-        return this.elements.filter(x =&gt; x[argName] === argValue)
+    public async <span class="fstat-no" title="function not covered" >findAllBy(</span>argName: string, argValue: string) {
+<span class="cstat-no" title="statement not covered" >        return this.elements.filter(<span class="fstat-no" title="function not covered" >x </span>=&gt; <span class="cstat-no" title="statement not covered" >x[argName] === argValue)</span></span>
     }
 &nbsp;
-    public async update(id: string, argName: string, argValue: any) {
-        const index = this.elements.findIndex(x =&gt; x.id === id)
-        this.elements[index][argName] = argValue;
+    public async <span class="fstat-no" title="function not covered" >update(</span>id: string, argName: string, argValue: any) {
+        const index = <span class="cstat-no" title="statement not covered" >this.elements.findIndex(<span class="fstat-no" title="function not covered" >x </span>=&gt; <span class="cstat-no" title="statement not covered" >x.id === id)</span></span>
+<span class="cstat-no" title="statement not covered" >        this.elements[index][argName] = argValue;</span>
     }
 &nbsp;
-    public async delete(id: string) {
-        const index = this.elements.findIndex(x =&gt; x.id === id)
-        this.elements.splice(index, 1);
+    public async <span class="fstat-no" title="function not covered" >delete(</span>id: string) {
+        const index = <span class="cstat-no" title="statement not covered" >this.elements.findIndex(<span class="fstat-no" title="function not covered" >x </span>=&gt; <span class="cstat-no" title="statement not covered" >x.id === id)</span></span>
+<span class="cstat-no" title="statement not covered" >        this.elements.splice(index, 1);</span>
     }
 &nbsp;
-    public async getAllElements() {
-        return this.elements;
+    public async <span class="fstat-no" title="function not covered" >getAllElements(</span>) {
+<span class="cstat-no" title="statement not covered" >        return this.elements;</span>
     }
 &nbsp;
 }</pre></td></tr></table></pre>
@@ -184,7 +184,7 @@ export class DataBase&lt;T extends ObjectWithId&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-03T22:12:02.785Z
+                at 2023-09-04T03:43:39.842Z
             </div>
         <script src="../prettify.js"></script>
         <script>
