@@ -1,10 +1,9 @@
-import { DataBase } from "../../app/server_app/data/DataBase"
+import { Authorizer } from "../../app/server_app/auth/Authorizer";
+import { DataBase } from "../../app/server_app/data/DataBase";
 import { HTTP_CODES, HTTP_METHODS } from "../../app/server_app/model/ServerModel";
 import { Server } from "../../app/server_app/server/Server";
-import { RequestTestWrapper } from './test_utils/RequestTestWrapper';
+import { RequestTestWrapper } from "./test_utils/RequestTestWrapper";
 import { ResponseTestWraper } from "./test_utils/ResponseTestWrapper";
-
-// jest.mock("../../app/server_app/data/DataBase");
 
 const requestWrapper = new RequestTestWrapper();
 const responseWrapper = new ResponseTestWraper();
@@ -23,34 +22,57 @@ jest.mock("http", () => {
   }
 });
 
-describe('Register requests test suite', () => {
+const insertSpy = jest.spyOn(DataBase.prototype, 'insert');
+const getBySpy = jest.spyOn(DataBase.prototype, 'getBy');
+
+const userMock = {
+  id: "123",
+  userName: "jean",
+  password: "123456"
+}
+
+const tokenMock = "123sdsd";
+
+describe('Login requests test suite', () => {
+
+  beforeEach(() => {
+    requestWrapper.headers['user-agent'] = 'jest tests'
+  })
+
   afterEach(() => {
     requestWrapper.clearFields();
     responseWrapper.clearFields();
+    jest.clearAllMocks();
   });
 
-  it('should register new users', async () => {
+  it('should login user', async () => {
     requestWrapper.method = HTTP_METHODS.POST;
-    requestWrapper.url = 'localhost:8080/register';
-    requestWrapper.body = {
-      userName: "jean",
-      password: "123456"
-    };
-    jest.spyOn(DataBase.prototype, 'insert').mockResolvedValueOnce("1234")
+    requestWrapper.url = 'localhost:8080/login';
+    requestWrapper.body = userMock;
+    getBySpy.mockResolvedValue(userMock);
+    insertSpy.mockResolvedValueOnce(tokenMock);
 
     await new Server().startServer();
     await new Promise(process.nextTick);
 
     expect(responseWrapper.statusCode).toBe(HTTP_CODES.CREATED);
-    expect(responseWrapper.body).toEqual(expect.objectContaining({
-      userId: expect.any(String)
-    }));
-    expect(DataBase.prototype.insert).toHaveBeenCalledTimes(1);
+  });
+
+  it('should reject request with user not found', async () => {
+    requestWrapper.method = HTTP_METHODS.POST;
+    requestWrapper.url = 'localhost:8080/login';
+    requestWrapper.body = userMock;
+    getBySpy.mockResolvedValue(null);
+
+    await new Server().startServer();
+    await new Promise(process.nextTick);
+
+    expect(responseWrapper.statusCode).toBe(HTTP_CODES.NOT_fOUND);
   });
 
   it('should reject request with no userName and password', async () => {
     requestWrapper.method = HTTP_METHODS.POST;
-    requestWrapper.url = 'localhost:8080/register';
+    requestWrapper.url = 'localhost:8080/login';
     requestWrapper.body = {};
     await new Server().startServer();
     await new Promise(process.nextTick);
@@ -60,11 +82,12 @@ describe('Register requests test suite', () => {
 
   it('should do nothing for not supported methods', async () => {
     requestWrapper.method = HTTP_METHODS.DELETE;
-    requestWrapper.url = 'localhost:8080/register';
+    requestWrapper.url = 'localhost:8080/login';
     requestWrapper.body = {};
     await new Server().startServer();
     await new Promise(process.nextTick);
 
     expect(responseWrapper.statusCode).toBeUndefined();
   });
+
 })
