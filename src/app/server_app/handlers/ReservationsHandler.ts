@@ -26,6 +26,7 @@ export class ReservationsHandler {
 
     public async handleRequest() {
         const isAuthorized = await this.isOperationAuthorized();
+        console.log({ isAuthorized })
         if (!isAuthorized) {
             this.response.statusCode = HTTP_CODES.UNAUTHORIZED;
             this.response.write(JSON.stringify('Unauthorized operation!'));

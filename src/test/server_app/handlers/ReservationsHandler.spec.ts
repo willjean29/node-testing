@@ -62,7 +62,7 @@ describe('ReservationsHandler test suite', () => {
     authorizerMock.validateToken.mockResolvedValueOnce(true);
   });
 
-  beforeEach(() => {
+  afterEach(() => {
     jest.clearAllMocks();
   });
 
