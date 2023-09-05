@@ -1,4 +1,5 @@
 import { HTTP_CODES, HTTP_METHODS } from "../../app/server_app/model/ServerModel";
+import * as generated from "../../app/server_app/data/IdGenerator";
 import { Server } from "../../app/server_app/server/Server";
 import { makeAwesomeRequest } from "./utils/http-client";
 
@@ -154,4 +155,26 @@ describe('Server app integraction test', () => {
     expect(resultBody).toContain(createdReservationId);
     console.log(process.env.HOST)
   });
+
+  it('snapshot demo', async () => {
+    jest.spyOn(generated, 'generateRandomId').mockReturnValueOnce("123456");
+
+    await fetch('http://localhost:8080/reservation', {
+      method: HTTP_METHODS.POST,
+      headers: { 'authorization': token },
+      body: JSON.stringify(reservationMock)
+    });
+
+    const result = await fetch(`http://localhost:8080/reservation/123456`, {
+      method: HTTP_METHODS.GET,
+      headers: { 'authorization': token }
+    })
+
+    const resultBody = await result.json();
+
+    expect(resultBody).toMatchSnapshot();
+    expect(resultBody).toMatchSnapshot();
+
+  });
+
 })

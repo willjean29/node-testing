@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Server app integraction test snapshot demo 1`] = `
+{
+  "endDate": "2020/01/15",
+  "id": "123456",
+  "room": "abc",
+  "startDate": "2020/01/01",
+  "user": "jean",
+}
+`;
+
+exports[`Server app integraction test snapshot demo 2`] = `
+{
+  "endDate": "2020/01/15",
+  "id": "123456",
+  "room": "abc",
+  "startDate": "2020/01/01",
+  "user": "jean",
+}
+`;
