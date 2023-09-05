@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">41.17% </span>
+                <span class="strong">88.23% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/17</span>
+                <span class='fraction'>15/17</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.27% </span>
+                <span class="strong">81.81% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/11</span>
+                <span class='fraction'>9/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.84% </span>
+                <span class="strong">92.3% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/13</span>
+                <span class='fraction'>12/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -101,24 +101,24 @@
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">69x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -136,7 +136,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { generateRandomId } from "./IdGenerator";
@@ -149,14 +149,14 @@ export class DataBase&lt;T extends ObjectWithId&gt; {
 &nbsp;
     private elements = new Array&lt;T&gt;();
 &nbsp;
-    public async <span class="fstat-no" title="function not covered" >insert(</span>arg: T) {
-<span class="cstat-no" title="statement not covered" >        arg.id = generateRandomId();</span>
-<span class="cstat-no" title="statement not covered" >        this.elements.push(arg);</span>
-<span class="cstat-no" title="statement not covered" >        return arg.id;</span>
+    public async insert(arg: T) {
+        arg.id = generateRandomId();
+        this.elements.push(arg);
+        return arg.id;
     }
 &nbsp;
-    public async <span class="fstat-no" title="function not covered" >getBy(</span>argName: string, argValue: string) {
-<span class="cstat-no" title="statement not covered" >        return this.elements.find(<span class="fstat-no" title="function not covered" >x </span>=&gt; <span class="cstat-no" title="statement not covered" >x[argName] === argValue)</span></span>
+    public async getBy(argName: string, argValue: string) {
+        return this.elements.find(x =&gt; x[argName] === argValue)
     }
 &nbsp;
     public async <span class="fstat-no" title="function not covered" >findAllBy(</span>argName: string, argValue: string) {
@@ -164,17 +164,17 @@ export class DataBase&lt;T extends ObjectWithId&gt; {
     }
 &nbsp;
     public async update(id: string, argName: string, argValue: any) {
-        const index = this.elements.findIndex(<span class="fstat-no" title="function not covered" >x </span>=&gt; <span class="cstat-no" title="statement not covered" >x.id === id)</span>
+        const index = this.elements.findIndex(x =&gt; x.id === id)
         this.elements[index][argName] = argValue;
     }
 &nbsp;
     public async delete(id: string) {
-        const index = this.elements.findIndex(<span class="fstat-no" title="function not covered" >x </span>=&gt; <span class="cstat-no" title="statement not covered" >x.id === id)</span>
+        const index = this.elements.findIndex(x =&gt; x.id === id)
         this.elements.splice(index, 1);
     }
 &nbsp;
-    public async <span class="fstat-no" title="function not covered" >getAllElements(</span>) {
-<span class="cstat-no" title="statement not covered" >        return this.elements;</span>
+    public async getAllElements() {
+        return this.elements;
     }
 &nbsp;
 }</pre></td></tr></table></pre>
@@ -184,7 +184,7 @@ export class DataBase&lt;T extends ObjectWithId&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-04T05:41:02.433Z
+                at 2023-09-05T17:19:31.327Z
             </div>
         <script src="../prettify.js"></script>
         <script>
