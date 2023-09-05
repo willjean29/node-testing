@@ -152,5 +152,6 @@ describe('Server app integraction test', () => {
 
     expect(result.status).toEqual(HTTP_CODES.OK);
     expect(resultBody).toContain(createdReservationId);
+    console.log(process.env.HOST)
   });
 })
